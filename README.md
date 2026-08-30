@@ -83,20 +83,22 @@ Beat Saberのプレイ中に、視聴者がTwitchチャットから
 
 ## ⚙️ 初期設定
 
+## ⚙️ 初期設定
+
 ToyanBomb v1.0.0の初期設定は以下の通りです。
 
-| 設定 | 初期値 |
-| --- | ---: |
-| Bomb Size | 1.55 |
-| Cut Effect | 100% |
-| Text / Stamp Size | 100% |
-| Bomb Name Size | 100% |
-| Display Time | 4.5 sec |
-| Display Distance | 6.0 m |
-| Display Height | 0.0 m |
-| Fly Speed | 4 |
-| Float Speed | 0.20 m/s |
-| Fade Speed | 4 |
+| 設定 | 初期値 | 説明 |
+| --- | ---: | --- |
+| Bomb Size | 1.55 | ゲーム内に表示されるボムの大きさを調整します。 |
+| Cut Effect | 100% | ボムを斬ったときに表示されるカットエフェクトの大きさを調整します。 |
+| Text / Stamp Size | 100% | プレイヤー視点に表示されるテキストやエモート / スタンプの大きさを調整します。 |
+| Bomb Name Size | 100% | ボム付近に表示される `!bomb` 送信者名の大きさを調整します。 |
+| Display Time | 4.5 sec | プレイヤー視点のテキスト / スタンプ演出を表示しておく時間を調整します。 |
+| Display Distance | 6.0 m | プレイヤーから見たテキスト / スタンプ演出の表示距離を調整します。 |
+| Display Height | 0.0 m | テキスト / スタンプ演出の表示位置を上下方向に調整します。0.0 mが基準位置です。 |
+| Fly Speed | 4 | テキスト / スタンプ演出がプレイヤー側へ飛んでくる速度を調整します。 |
+| Float Speed | 0.20 m/s | 表示後のテキスト / スタンプ演出が浮遊する速度を調整します。 |
+| Fade Speed | 4 | テキスト / スタンプ演出がフェードアウトする速度を調整します。 |
 
 各設定はゲーム内のToyanBomb設定画面から変更できます。
 
@@ -253,18 +255,18 @@ The viewer's name and available emote / stamp effects will also be displayed in 
 
 ToyanBomb v1.0.0 uses the following default settings:
 
-| Setting | Default |
-| --- | ---: |
-| Bomb Size | 1.55 |
-| Cut Effect | 100% |
-| Text / Stamp Size | 100% |
-| Bomb Name Size | 100% |
-| Display Time | 4.5 sec |
-| Display Distance | 6.0 m |
-| Display Height | 0.0 m |
-| Fly Speed | 4 |
-| Float Speed | 0.20 m/s |
-| Fade Speed | 4 |
+| Setting | Default | Description |
+| --- | ---: | --- |
+| Bomb Size | 1.55 | Adjusts the size of the bomb displayed in-game. |
+| Cut Effect | 100% | Adjusts the size of the cut effect displayed when the bomb is hit. |
+| Text / Stamp Size | 100% | Adjusts the size of the text and emote / stamp effects displayed in the player view. |
+| Bomb Name Size | 100% | Adjusts the size of the `!bomb` sender's name displayed near the bomb. |
+| Display Time | 4.5 sec | Adjusts how long the text / stamp effect remains visible in the player view. |
+| Display Distance | 6.0 m | Adjusts the distance of the text / stamp effect from the player. |
+| Display Height | 0.0 m | Adjusts the vertical position of the text / stamp effect. 0.0 m is the base position. |
+| Fly Speed | 4 | Adjusts how quickly the text / stamp effect flies toward the player. |
+| Float Speed | 0.20 m/s | Adjusts the floating speed of the text / stamp effect after it appears. |
+| Fade Speed | 4 | Adjusts how quickly the text / stamp effect fades out. |
 
 These settings can be adjusted from the ToyanBomb in-game settings menu.
 
