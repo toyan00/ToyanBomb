@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>ToyanBomb</AssemblyName>
+    <RootNamespace>ToyanBomb</RootNamespace>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+
+    <!-- Override with: dotnet build -p:BeatSaberDir="D:\Beat Saber" -->
+    <BeatSaberDir Condition="'$(BeatSaberDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</BeatSaberDir>
+
+    <ManagedDir>$(BeatSaberDir)\Beat Saber_Data\Managed</ManagedDir>
+    <PluginsDir>$(BeatSaberDir)\Plugins</PluginsDir>
+    <LibsDir>$(BeatSaberDir)\Libs</LibsDir>
+    <BSMLDll Condition="'$(BSMLDll)' == ''">$(PluginsDir)\BSML.dll</BSMLDll>
+    <ChatPlexDll Condition="'$(ChatPlexDll)' == ''">$(PluginsDir)\ChatPlexSDK_BS.dll</ChatPlexDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(ManagedDir)\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Main">
+      <HintPath>$(ManagedDir)\Main.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BeatmapCore">
+      <HintPath>$(BeatmapCorePath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(ManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>$(ManagedDir)\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>$(ManagedDir)\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>$(ManagedDir)\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="IPA.Loader">
+      <HintPath Condition="Exists('$(ManagedDir)\IPA.Loader.dll')">$(ManagedDir)\IPA.Loader.dll</HintPath>
+      <HintPath Condition="!Exists('$(ManagedDir)\IPA.Loader.dll')">$(BeatSaberDir)\IPA\Data\Managed\IPA.Loader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(LibsDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="BeatSaberMarkupLanguage">
+      <HintPath>$(BSMLDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- Supplied by BeatSaberPlus 6.x -->
+    <Reference Include="ChatPlexSDK_BS">
+      <HintPath>$(ChatPlexDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- BSIPA expects plugin metadata embedded in the DLL. -->
+    <EmbeddedResource Include="manifest.json" />
+    <EmbeddedResource Include="UI\bomb-menu.bsml" LogicalName="ToyanBomb.UI.bomb-menu.bsml" />
+  </ItemGroup>
+</Project>
