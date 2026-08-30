@@ -1,17 +1,210 @@
 # 💣 ToyanBomb
 
-A Twitch chat `!bomb` mod for Beat Saber.
+Twitchチャットの `!bomb` で遊べる、Beat Saber向けの配信連携MODです。
 
-ToyanBomb turns notes into bombs when viewers use `!bomb` in Twitch chat and displays the viewer's name with visual effects in the player view.
+視聴者がTwitchチャットで `!bomb` を送信すると、対象ノーツのゲームプレイ判定を維持したまま見た目をボムに変更し、視聴者名やエモートなどの演出をプレイヤー視点に表示します。
 
-It was created as a simple and fun way to add viewer interaction to Beat Saber streams.
+Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな `!bomb` MODとして制作しました。
+
+**[English version below](#-english)**
+
+---
+
+## ✨ 特徴
+
+- Twitchチャットの `!bomb` に対応
+- 元のノーツ判定を維持したまま、対象ノーツの見た目をボムに変更
+- `!bomb` を送信した視聴者名を表示
+- プレイヤー視点へのメッセージアニメーション
+- エモート / スタンプ表示
+- ボムサイズ調整
+- カットエフェクト調整
+- テキスト / スタンプサイズ調整
+- 表示距離・表示高さ調整
+- 飛来速度・浮遊速度・フェード速度調整
+- ゲーム内MOD設定画面に対応
+
+---
+
+## 🎮 対応バージョン
+
+現在のバージョン：
+
+- **ToyanBomb v1.0.0**
+- **Beat Saber 1.44.1**
+
+その他のBeat Saberバージョン向けビルドについては、GitHub Releasesで個別に公開する場合があります。
+
+---
+
+## 📦 必要なMOD / ライブラリ
+
+ToyanBombの動作には、MOD導入済みのBeat Saber環境と以下のコンポーネントが必要です。
+
+- BSIPA 4.3.6 以降
+- ChatPlexSDK_BS 6.4.0 以降
+- BeatSaberMarkupLanguage (BSML)
+- BeatSaberPlus / ChatPlex 環境
+
+ToyanBombを導入する前に、必要な依存関係が導入されていることを確認してください。
+
+---
+
+## 🚀 インストール
+
+1. 使用しているBeat Saberバージョンに対応したToyanBombをGitHub Releasesからダウンロードします。
+2. ダウンロードしたファイルを展開します。
+3. `ToyanBomb.dll` をBeat Saberの `Plugins` フォルダへコピーします。
+4. Beat Saberを起動します。
+5. ゲーム内のMOD設定画面からToyanBombを設定します。
+
+例：
+
+```text
+Beat Saber/
+└── Plugins/
+    └── ToyanBomb.dll
+```
+
+---
+
+## 💬 使い方
+
+Beat Saberのプレイ中に、視聴者がTwitchチャットから
+
+```text
+!bomb
+```
+
+と送信するとToyanBombが反応します。
+
+対象となるノーツのゲームプレイ判定はそのまま維持され、見た目がボムに変化します。
+
+同時に、送信した視聴者名やエモート / スタンプなどの演出がプレイヤー視点に表示されます。
+
+---
+
+## ⚙️ 初期設定
+
+ToyanBomb v1.0.0の初期設定は以下の通りです。
+
+| 設定 | 初期値 |
+| --- | ---: |
+| Bomb Size | 1.55 |
+| Cut Effect | 100% |
+| Text / Stamp Size | 100% |
+| Bomb Name Size | 100% |
+| Display Time | 4.5 sec |
+| Display Distance | 6.0 m |
+| Display Height | 0.0 m |
+| Fly Speed | 4 |
+| Float Speed | 0.20 m/s |
+| Fade Speed | 4 |
+
+各設定はゲーム内のToyanBomb設定画面から変更できます。
+
+---
+
+## ❤️ 制作のきっかけ・謝辞
+
+ToyanBombを制作する以前から、私は **denpadokeiさん**の [StreamPartyCommand](https://github.com/denpadokei/StreamPartyCommand) に搭載されている `!bomb` 機能を長く愛用していました。
+
+`!bomb` は、Beat Saberのプレイに視聴者が直接参加できる、とても楽しい機能です。
+
+一方で、周りには環境の違いなどからbomb機能をうまく導入できない方が何人かいました。
+
+そこで、
+
+**「もっとシンプルに、`!bomb` だけを使えるMODがあればいいのでは？」**
+
+と思ったことが、ToyanBombを制作するきっかけになりました。
+
+もともとは自分用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開することにしました。
+
+長く楽しませていただいたStreamPartyCommandと、開発者のdenpadokeiさんに感謝します。
+
+ToyanBombは独立して制作したMODであり、StreamPartyCommandのソースコードやアセットは含んでいません。
+
+---
+
+## 🛠️ ソースからのビルド
+
+### 必要な環境
+
+- Visual Studio 2022 または互換性のある.NETビルド環境
+- .NET SDK / MSBuild
+- 必要なMOD / ライブラリが導入されたBeat Saber
+
+リポジトリをCloneしてVisual Studioからビルドするか、同梱されているPowerShellスクリプトを使用できます。
+
+例：
+
+```powershell
+.\build.ps1 -BeatSaberDir "D:\Path\To\Beat Saber"
+```
+
+`BeatSaberDir` を指定しなかった場合は、Steam版Beat Saberの標準インストール先を自動的に確認します。
+
+BSManagerを使用している場合は、対象となるBeat Saberインスタンスのフォルダを `BeatSaberDir` に指定してください。
+
+---
+
+## 📝 注意事項
+
+ToyanBombは非公式のコミュニティMODです。
+
+Beat GamesおよびMetaとは関係がなく、公式に承認・提供されているものではありません。
+
+Beat Saberおよび関連する商標は、それぞれの権利者に帰属します。
+
+---
+
+## 📜 ライセンス・改造・再配布
+
+ToyanBombは **MIT License** で公開しています。
+
+以下を含め、自由に利用できます。
+
+- 使用
+- 改造
+- 再配布
+- Fork
+- 他のプロジェクトへの利用
+
+ソースコードまたはその重要な部分を再配布する場合は、元の著作権表示とMIT Licenseを残してください。
+
+詳細は `LICENSE` を確認してください。
+
+**改造も再配布も歓迎です。たくさんボムを投げて遊んでください！💣**
+
+---
+
+## ❤️ Credits
+
+Created by **toyan00** with development assistance from **Luka / ChatGPT**.
+
+Beat SaberのMODコミュニティ、およびToyanBombで使用しているライブラリ・ツールの開発者の皆様に感謝します。
+
+---
+
+# 🇬🇧 English
+
+## 💣 About ToyanBomb
+
+ToyanBomb is a Twitch chat `!bomb` mod for Beat Saber.
+
+When a viewer sends `!bomb` in Twitch chat, ToyanBomb visually turns an eligible note into a bomb while retaining the original note gameplay and judgement.
+
+The viewer's name, emote / stamp, and visual effects are also displayed in the player view.
+
+ToyanBomb was created as a simple and fun way for viewers to interact with Beat Saber gameplay.
 
 ---
 
 ## ✨ Features
 
 - Twitch chat `!bomb` integration
-- Converts notes into bombs
+- Visually converts eligible notes into bombs while retaining the original note gameplay
 - Displays the viewer's name when a bomb is triggered
 - Player-view message animation
 - Emote / stamp display support
@@ -50,7 +243,7 @@ Make sure the required dependencies are installed before using ToyanBomb.
 
 ## 🚀 Installation
 
-1. Download the ToyanBomb release for your Beat Saber version.
+1. Download the ToyanBomb release for your Beat Saber version from GitHub Releases.
 2. Extract the downloaded archive.
 3. Copy `ToyanBomb.dll` into your Beat Saber `Plugins` folder.
 4. Start Beat Saber.
@@ -68,7 +261,7 @@ Beat Saber/
 
 ## 💬 Usage
 
-During gameplay, viewers can send:
+During Beat Saber gameplay, viewers can send:
 
 ```text
 !bomb
@@ -76,7 +269,9 @@ During gameplay, viewers can send:
 
 in Twitch chat.
 
-ToyanBomb will process the command and trigger the bomb interaction in Beat Saber.
+ToyanBomb will process the command and visually turn an eligible note into a bomb while retaining the original note gameplay.
+
+The viewer's name and available emote / stamp effects will also be displayed in the player view.
 
 ---
 
@@ -141,15 +336,15 @@ Example:
 
 If `BeatSaberDir` is not specified, the build script will try the standard Steam installation path.
 
-BSManager or other installations can be used by specifying the Beat Saber instance directory manually.
+BSManager users can specify the directory of the desired Beat Saber instance manually.
 
 ---
 
 ## 📝 Notes
 
-Beat Saber and related trademarks are property of their respective owners.
-
 ToyanBomb is an unofficial community mod and is not affiliated with or endorsed by Beat Games or Meta.
+
+Beat Saber and related trademarks are property of their respective owners.
 
 ---
 
@@ -176,64 +371,3 @@ See the `LICENSE` file for details.
 Created by **toyan00** with development assistance from **Luka / ChatGPT**.
 
 Thanks to the Beat Saber modding community and the developers of the libraries and tools that make projects like this possible.
-
----
-
-# 🇯🇵 日本語
-
-## 💣 ToyanBombについて
-
-ToyanBombは、Twitchチャットの `!bomb` でBeat Saberのノーツをボム化し、視聴者名やエモートなどの演出を表示する配信向けMODです。
-
-### 💬 使い方
-
-Beat Saberのプレイ中に、Twitchチャットから
-
-!bomb
-
-と送信するとToyanBombが反応します。
-
-各種表示サイズ、表示位置、飛来速度、フェードなどはゲーム内のMOD設定画面から調整できます。
-
----
-
-## ❤️ 制作のきっかけ・謝辞
-
-
-ToyanBombを制作する以前から、私は **denpadokeiさん**の [StreamPartyCommand](https://github.com/denpadokei/StreamPartyCommand) に搭載されている `!bomb` 機能を長く愛用していました。
-
-
-`!bomb` は、Beat Saberのプレイに視聴者が直接参加できる、とても楽しい機能です。
-
-
-一方で、周りには環境の違いなどからbomb機能をうまく導入できない方が何人かいました。
-
-
-そこで、
-
-**「もっとシンプルに、`!bomb` だけを使えるMODがあればいいのでは？」**
-
-と思ったことが、ToyanBombを制作するきっかけになりました。
-
-
-もともとは自分用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開することにしました。
-
-
-長く楽しませていただいたStreamPartyCommandと、開発者のdenpadokeiさんに感謝します。
-
-ToyanBombは独立して制作したMODであり、StreamPartyCommandのソースコードやアセットは含んでいません。
-
-
----
-
-
-## 📜 改造・再配布について
-
-
-ToyanBombは **MIT License** で公開しています。
-
-改造・再配布・フォーク・他のプロジェクトへの利用も歓迎です。
-
-元の著作権表示とMIT Licenseを残した上で、自由に使ってください。
-
-**たくさんボムを投げて遊んでください！💣**
