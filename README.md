@@ -30,7 +30,6 @@ Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな 
 
 現在のバージョン：
 
-- **ToyanBomb v1.0.0**
 - **Beat Saber 1.44.1**
 
 その他のBeat Saberバージョン向けビルドについては、GitHub Releasesで個別に公開する場合があります。
@@ -38,8 +37,6 @@ Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな 
 ---
 
 ## 📦 必要なMOD / ライブラリ
-
-ToyanBombの動作には、MOD導入済みのBeat Saber環境と以下のコンポーネントが必要です。
 
 - BSIPA 4.3.6 以降
 - ChatPlexSDK_BS 6.4.0 以降
@@ -119,33 +116,11 @@ ToyanBombを制作する以前から、私は **denpadokeiさん**の [StreamPar
 
 と思ったことが、ToyanBombを制作するきっかけになりました。
 
-もともとは自分用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開することにしました。
+もともとは自分と友人用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開することにしました。
 
 長く楽しませていただいたStreamPartyCommandと、開発者のdenpadokeiさんに感謝します。
 
 ToyanBombは独立して制作したMODであり、StreamPartyCommandのソースコードやアセットは含んでいません。
-
----
-
-## 🛠️ ソースからのビルド
-
-### 必要な環境
-
-- Visual Studio 2022 または互換性のある.NETビルド環境
-- .NET SDK / MSBuild
-- 必要なMOD / ライブラリが導入されたBeat Saber
-
-リポジトリをCloneしてVisual Studioからビルドするか、同梱されているPowerShellスクリプトを使用できます。
-
-例：
-
-```powershell
-.\build.ps1 -BeatSaberDir "D:\Path\To\Beat Saber"
-```
-
-`BeatSaberDir` を指定しなかった場合は、Steam版Beat Saberの標準インストール先を自動的に確認します。
-
-BSManagerを使用している場合は、対象となるBeat Saberインスタンスのフォルダを `BeatSaberDir` に指定してください。
 
 ---
 
@@ -221,7 +196,6 @@ ToyanBomb was created as a simple and fun way for viewers to interact with Beat 
 
 Current version:
 
-- **ToyanBomb v1.0.0**
 - **Beat Saber 1.44.1**
 
 Builds for other Beat Saber versions may be provided separately through GitHub Releases.
@@ -316,27 +290,6 @@ Many thanks to **denpadokei** for StreamPartyCommand and for the experience that
 
 ToyanBomb is an independently developed implementation and does not contain source code or assets from StreamPartyCommand.
 
----
-
-## 🛠️ Building from Source
-
-### Requirements
-
-- Visual Studio 2022 or a compatible .NET build environment
-- .NET SDK / MSBuild
-- A Beat Saber installation with the required mod dependencies
-
-Clone the repository and build the solution with Visual Studio, or use the included PowerShell build script.
-
-Example:
-
-```powershell
-.\build.ps1 -BeatSaberDir "D:\Path\To\Beat Saber"
-```
-
-If `BeatSaberDir` is not specified, the build script will try the standard Steam installation path.
-
-BSManager users can specify the directory of the desired Beat Saber instance manually.
 
 ---
 
@@ -368,6 +321,6 @@ See the `LICENSE` file for details.
 
 ## ❤️ Credits
 
-Created by **toyan00** with development assistance from **Luka / ChatGPT**.
+Created by **toyan00** with development assistance from **ChatGPT**.
 
 Thanks to the Beat Saber modding community and the developers of the libraries and tools that make projects like this possible.
