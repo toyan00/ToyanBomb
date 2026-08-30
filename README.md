@@ -26,13 +26,11 @@ Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな 
 
 ---
 
-## 🎮 対応バージョン
+## 🎮 このブランチの対応バージョン：
 
-現在のバージョン：
+- **Beat Saber 1.40.8**
 
-- **Beat Saber 1.44.1**
-
-その他のBeat Saberバージョン向けビルドについては、GitHub Releasesで個別に公開する場合があります。
+その他のBeat Saberバージョン向けビルドについては、GitHub Releasesをご確認ください。
 
 ---
 
@@ -192,13 +190,11 @@ ToyanBomb was created as a simple and fun way for viewers to interact with Beat 
 
 ---
 
-## 🎮 Supported Version
+## 🎮 This branch supports:
 
-Current version:
+- **Beat Saber 1.40.8**
 
-- **Beat Saber 1.44.1**
-
-Builds for other Beat Saber versions may be provided separately through GitHub Releases.
+For builds targeting other Beat Saber versions, please check GitHub Releases.
 
 ---
 

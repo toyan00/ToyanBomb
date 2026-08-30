@@ -16,8 +16,6 @@
     <ManagedDir>$(BeatSaberDir)\Beat Saber_Data\Managed</ManagedDir>
     <PluginsDir>$(BeatSaberDir)\Plugins</PluginsDir>
     <LibsDir>$(BeatSaberDir)\Libs</LibsDir>
-    <BSMLDll Condition="'$(BSMLDll)' == ''">$(PluginsDir)\BSML.dll</BSMLDll>
-    <ChatPlexDll Condition="'$(ChatPlexDll)' == ''">$(PluginsDir)\ChatPlexSDK_BS.dll</ChatPlexDll>
   </PropertyGroup>
 
   <ItemGroup>
@@ -72,18 +70,22 @@
       <HintPath Condition="!Exists('$(ManagedDir)\IPA.Loader.dll')">$(BeatSaberDir)\IPA\Data\Managed\IPA.Loader.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="0Harmony">
+    <Reference Include="0Harmony" Condition="Exists('$(LibsDir)\0Harmony.dll')">
       <HintPath>$(LibsDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony" Condition="!Exists('$(LibsDir)\0Harmony.dll') And Exists('$(BeatSaberDir)\IPA\Libs\0Harmony.dll')">
+      <HintPath>$(BeatSaberDir)\IPA\Libs\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
 
     <Reference Include="BeatSaberMarkupLanguage">
-      <HintPath>$(BSMLDll)</HintPath>
+      <HintPath>$(PluginsDir)\BSML.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <!-- Supplied by BeatSaberPlus 6.x -->
     <Reference Include="ChatPlexSDK_BS">
-      <HintPath>$(ChatPlexDll)</HintPath>
+      <HintPath>$(PluginsDir)\ChatPlexSDK_BS.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
