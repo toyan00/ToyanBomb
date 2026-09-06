@@ -156,7 +156,7 @@ ToyanBombは **MIT License** で公開しています。
 
 ## ❤️ Credits
 
-Created by **toyan00** with development assistance from **ChatGPT**.
+Created by **toyan00&luca＊＊ with development assistance from **ChatGPT**.
 
 Beat SaberのMODコミュニティ、およびToyanBombで使用しているライブラリ・ツールの開発者の皆様に感謝します。
 
@@ -321,6 +321,6 @@ See the `LICENSE` file for details.
 
 ## ❤️ Credits
 
-Created by **toyan00** with development assistance from **ChatGPT**.
+Created by **toyan00&luca** with development assistance from **ChatGPT**.
 
 Thanks to the Beat Saber modding community and the developers of the libraries and tools that make projects like this possible.
