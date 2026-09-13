@@ -9,7 +9,7 @@ Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな 
 **[English version below](#-english)**
 
 ---
-
+ 
 ## ✨ 特徴
 
 - Twitchチャットの `!bomb` に対応
