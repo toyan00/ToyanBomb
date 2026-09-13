@@ -4,11 +4,16 @@
 
 $ErrorActionPreference = "Stop"
 
-# If BeatSaberDir was not specified, try the default Steam installation path.
+# If BeatSaberDir was not specified, prefer the BSManager 1.40.8 instance.
+# Fall back to the default Steam installation only if that instance is unavailable.
 if ([string]::IsNullOrWhiteSpace($BeatSaberDir)) {
+    $DefaultBSManagerDir = "D:\beat saber\BSManager\BSInstances\1.40.8"
     $DefaultSteamDir = "C:\Program Files (x86)\Steam\steamapps\common\Beat Saber"
 
-    if (Test-Path $DefaultSteamDir) {
+    if (Test-Path $DefaultBSManagerDir) {
+        $BeatSaberDir = $DefaultBSManagerDir
+    }
+    elseif (Test-Path $DefaultSteamDir) {
         $BeatSaberDir = $DefaultSteamDir
     }
     else {
@@ -17,13 +22,14 @@ if ([string]::IsNullOrWhiteSpace($BeatSaberDir)) {
         Write-Host "Usage:"
         Write-Host '  .\build.ps1 -BeatSaberDir "D:\Path\To\Beat Saber"'
         Write-Host ""
-        Write-Host "The default Steam installation path was also not found:"
+        Write-Host "Checked default locations:"
+        Write-Host "  $DefaultBSManagerDir"
         Write-Host "  $DefaultSteamDir"
         exit 1
     }
 }
 
-Write-Host "ToyanBomb v1.0.0 for Beat Saber 1.40.8 Stable build"
+Write-Host "ToyanBomb v1.1.6 for Beat Saber 1.40.8 Stable build"
 Write-Host "Beat Saber: $BeatSaberDir"
 Write-Host ""
 
