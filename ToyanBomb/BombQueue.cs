@@ -36,6 +36,19 @@ namespace ToyanBomb
             }
         }
 
+        // !bsr companion bomb. Returns the queued request so the BeatSaver
+        // resolver can replace the fallback key/text with the resolved song name.
+        internal static BombRequest AddBsr(string initialText, out int pending)
+        {
+            lock (Sync)
+            {
+                var request = new BombRequest(initialText, null, true);
+                Queue.Enqueue(request);
+                pending = Queue.Count;
+                return request;
+            }
+        }
+
         internal static bool TryTake(out BombRequest request)
         {
             lock (Sync)

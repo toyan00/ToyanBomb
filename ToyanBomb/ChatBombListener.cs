@@ -116,6 +116,35 @@ namespace ToyanBomb
                     );
                     return;
                 }
+
+                // BS+ song request companion:
+                // let BS+ process !bsr normally, while ToyanBomb independently
+                // queues one visual bomb for the same chat message. When cut,
+                // the bomb shows the resolved BeatSaver song name.
+                if (IsCommand(text, "!bsr", out string bsrArgument))
+                {
+                    if (!BombSettings.BsrBombEnabled)
+                    {
+                        Plugin.Log?.Info("!bsr detected; BSR Bomb is disabled, ignoring ToyanBomb companion action");
+                        return;
+                    }
+
+                    string arg = (bsrArgument ?? string.Empty).Trim();
+                    if (string.IsNullOrEmpty(arg))
+                        return;
+
+                    string requesterName = string.IsNullOrWhiteSpace(displayName) ? user : displayName;
+                    string requestLabel = requesterName + "\n!bsr " + arg;
+                    BombRequest bsrRequest = BombQueue.AddBsr(requestLabel, out int bsrPending);
+                    BombStatus.Accepted();
+                    BombSettings.IncrementTotalThrows();
+
+                    Plugin.Log.Info(
+                        $"!bsr companion bomb queued by {displayName} " +
+                        $"(login={user}, arg={arg}); pending={bsrPending}"
+                    );
+                    return;
+                }
             }
             catch (Exception ex)
             {
