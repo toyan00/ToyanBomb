@@ -94,6 +94,20 @@ namespace ToyanBomb
             BombSettings.SetEnabled(value);
         }
 
+        [UIValue("bsr-bomb-enabled")]
+        public bool BsrBombEnabled
+        {
+            get => BombSettings.BsrBombEnabled;
+            set => BombSettings.SetBsrBombEnabled(value);
+        }
+
+        [UIAction("bsr-bomb-enabled-changed")]
+        private void OnBsrBombEnabledChanged(bool value)
+        {
+            Plugin.Log?.Info($"BSML on-change: bsr-bomb-enabled={value}");
+            BombSettings.SetBsrBombEnabled(value);
+        }
+
         [UIValue("bomb-size")]
         public float BombSize
         {
