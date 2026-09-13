@@ -492,7 +492,13 @@ namespace ToyanBomb
                     ? BombSettings.CustomVisualSize
                     : BombSettings.BombNameSize;
                 text.fontSize = 4.4f * (textSizePercent / 100f);
-                text.enableWordWrapping = false;
+
+                // Keep short labels on one line, but allow long chat messages to
+                // wrap automatically. Explicit newlines (used by BSR labels) are
+                // always respected.
+                text.enableWordWrapping = true;
+                text.rectTransform.sizeDelta = new Vector2(7.5f, 4.0f);
+                text.overflowMode = TextOverflowModes.Overflow;
                 text.color = Color.white;
                 text.outlineWidth = 0.22f;
                 text.outlineColor = new Color(0f, 0f, 0f, 0.9f);

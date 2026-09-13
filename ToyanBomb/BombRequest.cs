@@ -4,7 +4,7 @@ namespace ToyanBomb
 {
     internal sealed class BombRequest
     {
-        internal string UserName { get; }
+        internal string UserName { get; private set; }
         internal IReadOnlyList<BombEmoteData> Emotes { get; }
         internal bool IsCustomMessage { get; }
 
@@ -16,6 +16,11 @@ namespace ToyanBomb
             UserName = userName ?? string.Empty;
             Emotes = emotes ?? new List<BombEmoteData>();
             IsCustomMessage = isCustomMessage;
+        }
+
+        internal void SetDisplayText(string value)
+        {
+            UserName = value ?? string.Empty;
         }
 
         public override string ToString() => UserName;

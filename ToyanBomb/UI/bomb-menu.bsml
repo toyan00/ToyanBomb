@@ -1,5 +1,15 @@
 ﻿<vertical spacing="0.8">
-  <toggle-setting text="Enabled" value="bomb-enabled" on-change="bomb-enabled-changed" />
+  <vertical spacing="1.8">
+    <horizontal spacing="0" preferred-width="70">
+      <text text="Enabled" preferred-width="25" />
+      <toggle-setting text=" " value="bomb-enabled" on-change="bomb-enabled-changed" />
+    </horizontal>
+
+    <horizontal spacing="0" preferred-width="70">
+      <text text="BSR Bomb" preferred-width="25" />
+      <toggle-setting text=" " value="bsr-bomb-enabled" on-change="bsr-bomb-enabled-changed" />
+    </horizontal>
+  </vertical>
 
   <horizontal spacing="0" preferred-width="70">
     <text text="Bomb Size" preferred-width="25" />

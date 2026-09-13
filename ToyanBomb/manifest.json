@@ -3,7 +3,7 @@
   "id": "ToyanBomb",
   "name": "ToyanBomb",
   "author": "toyan / Luka",
-  "version": "1.0.0",
+  "version": "1.1.6",
   "description": "Twitch !bomb via BeatSaberPlus/ChatPlex. The next normal note LOOKS like a bomb while retaining the original note gameplay.",
   "gameVersion": "1.44.1",
   "dependsOn": {

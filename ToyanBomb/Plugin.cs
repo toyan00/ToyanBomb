@@ -20,13 +20,13 @@ namespace ToyanBomb
         public Plugin(Logger logger)
         {
             Log = logger;
-            Log.Info("ToyanBomb v1.0.0 [Init] reached");
+            Log.Info("ToyanBomb v1.1.6 [Init] reached");
         }
 
         [OnEnable]
         public void OnEnable()
         {
-            Log.Info("ToyanBomb v1.0.0 [OnEnable] starting");
+            Log.Info("ToyanBomb v1.1.6 [OnEnable] starting");
 
             try
             {
@@ -53,7 +53,7 @@ namespace ToyanBomb
                 SceneManager.sceneUnloaded += OnSceneUnloaded;
                 _menuRetryRunner.ArmRegistration();
 
-                Log.Info("ToyanBomb v1.0.0 enabled successfully");
+                Log.Info("ToyanBomb v1.1.6 enabled successfully");
             }
             catch (Exception ex)
             {

@@ -26,6 +26,7 @@ namespace ToyanBomb
         private static string OpenCloseStatusPath => Path.Combine(RootPath, "bomb-status.txt");
 
         internal static bool Enabled { get; private set; } = true;
+        internal static bool BsrBombEnabled { get; private set; } = true;
         internal static float BombSize { get; private set; } = 1.55f;
         internal static float CutEffectPercent { get; private set; } = 100f;
         internal static float CustomVisualSize { get; private set; } = 100f;
@@ -42,6 +43,7 @@ namespace ToyanBomb
         {
             public int configVersion { get; set; } = 3;
             public bool enabled { get; set; } = true;
+            public bool bsrBombEnabled { get; set; } = true;
             public float bombSize { get; set; } = 1.55f;
             public float cutEffect { get; set; } = 100f;
             public float bombTextStampSize { get; set; } = 100f;
@@ -144,6 +146,7 @@ namespace ToyanBomb
                 }
 
                 Enabled = cfg.enabled;
+                BsrBombEnabled = cfg.bsrBombEnabled;
                 BombSize = ClampRound(cfg.bombSize, 1.0f, 2.5f, 0.05f);
                 CutEffectPercent = ClampRound(cfg.cutEffect, 0f, 400f, 1f);
                 CustomVisualSize = ClampRound(cfg.bombTextStampSize, 25f, 300f, 1f);
@@ -171,6 +174,8 @@ namespace ToyanBomb
         private static void LoadLegacySettings()
         {
             Enabled = ReadLegacyBool(LegacyEnabledPath, true);
+            BsrBombEnabled = true;
+            BsrBombEnabled = true;
             BombSize = ReadLegacyFloat(LegacySizePath, 1.50f, 1.0f, 2.5f);
             CutEffectPercent = ReadLegacyFloat(LegacyCutEffectPath, 100f, 0f, 400f);
             CustomVisualSize = ReadLegacyFloat(LegacyCustomVisualSizePath, 100f, 25f, 300f);
@@ -186,6 +191,7 @@ namespace ToyanBomb
         private static void ApplyDefaults()
         {
             Enabled = true;
+            BsrBombEnabled = true;
             BombSize = 1.55f;
             CutEffectPercent = 100f;
             CustomVisualSize = 100f;
@@ -208,6 +214,7 @@ namespace ToyanBomb
                 {
                     configVersion = 3,
                     enabled = Enabled,
+                    bsrBombEnabled = BsrBombEnabled,
                     bombSize = BombSize,
                     cutEffect = CutEffectPercent,
                     bombTextStampSize = CustomVisualSize,
@@ -290,6 +297,16 @@ namespace ToyanBomb
             }
 
             return fallback;
+        }
+
+        internal static void SetBsrBombEnabled(bool value)
+        {
+            if (BsrBombEnabled == value)
+                return;
+
+            BsrBombEnabled = value;
+            SaveConfig();
+            Plugin.Log?.Info($"BSR Bomb {(BsrBombEnabled ? "enabled" : "disabled")}");
         }
 
         internal static void SetBombSize(float value)
