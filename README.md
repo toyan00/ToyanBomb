@@ -13,26 +13,32 @@ Beat Saberのプレイに視聴者が気軽に参加できる、シンプルな 
 ## ✨ 特徴
 
 - Twitchチャットの `!bomb` に対応
+- BeatSaberPlusの `!bsr` と連動する **BSR Bomb** に対応
+- BSR Bombを斬ると、リクエスト者名と `!bsr` 番号を2行表示
 - 元のノーツ判定を維持したまま、対象ノーツの見た目をボムに変更
 - `!bomb` を送信した視聴者名を表示
 - プレイヤー視点へのメッセージアニメーション
 - エモート / スタンプ表示
-- ボムサイズ調整
-- カットエフェクト調整
-- テキスト / スタンプサイズ調整
-- 表示距離・表示高さ調整
-- 飛来速度・浮遊速度・フェード速度調整
+- 長文テキストの自動改行
+- ボムサイズ / カットエフェクト / テキストサイズ調整
+- 表示距離・表示高さ・飛来速度・浮遊速度・フェード速度調整
 - ゲーム内MOD設定画面に対応
 
 ---
 
 ## 🎮 対応バージョン
 
-現在のバージョン：
+ToyanBomb v1.1.6 の配布ビルド：
 
-- **Beat Saber 1.44.1**
+- **Beat Saber 1.40.8**
+- **Beat Saber 1.42.0 - 1.44.1**
 
-その他のBeat Saberバージョン向けビルドについては、GitHub Releasesで個別に公開する場合があります。
+使用しているBeat Saberのバージョンに合ったZIPをGitHub Releasesからダウンロードしてください。
+
+ソースコードは以下のブランチで管理しています。
+
+- `main` : Beat Saber 1.42.0 - 1.44.1
+- `bs1.40.8` : Beat Saber 1.40.8
 
 ---
 
@@ -55,8 +61,6 @@ ToyanBombを導入する前に、必要な依存関係が導入されている�
 4. Beat Saberを起動します。
 5. ゲーム内のMOD設定画面からToyanBombを設定します。
 
-例：
-
 ```text
 Beat Saber/
 └── Plugins/
@@ -66,6 +70,8 @@ Beat Saber/
 ---
 
 ## 💬 使い方
+
+### !bomb
 
 Beat Saberのプレイ中に、視聴者がTwitchチャットから
 
@@ -79,24 +85,45 @@ Beat Saberのプレイ中に、視聴者がTwitchチャットから
 
 同時に、送信した視聴者名やエモート / スタンプなどの演出がプレイヤー視点に表示されます。
 
+### BSR Bomb
+
+ゲーム内設定の `BSR Bomb` をONにしていると、BeatSaberPlusで使う `!bsr` コマンドにToyanBombも反応します。
+
+例：
+
+```text
+!bsr 4567
+```
+
+リクエスト自体はBeatSaberPlusが通常どおり処理し、ToyanBombは同時にボムを1個キューへ追加します。
+
+そのボムを斬ると、例えば次のように2行で表示されます。
+
+```text
+toyan3
+!bsr 4567
+```
+
+`BSR Bomb` はゲーム内設定画面からON / OFFできます。
+
 ---
 
 ## ⚙️ 初期設定
 
-ToyanBomb v1.0.0の初期設定は以下の通りです。
+ToyanBomb v1.1.6 の初期設定は以下の通りです。
 
 | 設定 | 初期値 | 説明 |
 | --- | ---: | --- |
-| Bomb Size | 1.55 | ゲーム内に表示されるボムの大きさを調整します。 |
-| Cut Effect | 100% | ボムを斬ったときに発生するパーティクルエフェクトの量を調整します。 |
-| Text / Stamp Size | 100% | `!bomb` のカスタムテキストとエモート / スタンプの大きさを調整します。 |
-| Bomb Name Size | 100% | 通常の `!bomb` で表示される送信者名の大きさを調整します。 |
-| Display Time | 4.5 sec | テキスト / スタンプ演出が表示されてから消えるまでの時間を調整します。 |
-| Display Distance | 6.0 m | テキスト / スタンプ演出が最終的に表示される、プレイヤー前方の距離を調整します。 |
-| Display Height | 0.0 m | テキスト / スタンプ演出の表示位置を上下方向に調整します。0.0 mが基準位置です。 |
-| Fly Speed | 4 | テキスト / スタンプ演出がボムの位置から表示位置まで飛んでいく速度を調整します。 |
-| Float Speed | 0.20 m/s | 表示位置に到着した後、テキスト / スタンプ演出が上方向へ浮いていく速度を調整します。 |
-| Fade Speed | 4 | 表示終了時にテキスト / スタンプ演出がフェードアウトする速度を調整します。 |
+| Bomb Size | 1.55 | ゲーム内に表示されるボムの大きさ |
+| Cut Effect | 100% | ボムを斬ったときのパーティクル量 |
+| Text / Stamp Size | 100% | カスタムテキストとエモート / スタンプの大きさ |
+| Bomb Name Size | 100% | 通常の `!bomb` で表示される送信者名の大きさ |
+| Display Time | 4.5 sec | テキスト / スタンプ演出の表示時間 |
+| Display Distance | 6.0 m | プレイヤー前方の表示距離 |
+| Display Height | 0.0 m | 表示位置の高さ調整 |
+| Fly Speed | 4 | ボム位置から表示位置まで飛ぶ速度 |
+| Float Speed | 0.20 m/s | 到着後に上へ浮く速度 |
+| Fade Speed | 4 | フェードアウト速度 |
 
 各設定はゲーム内のToyanBomb設定画面から変更できます。
 
@@ -108,15 +135,9 @@ ToyanBombを制作する以前から、私は **denpadokeiさん**の [StreamPar
 
 `!bomb` は、Beat Saberのプレイに視聴者が直接参加できる、とても楽しい機能です。
 
-一方で、周りには環境の違いなどからbomb機能をうまく導入できない方が何人かいました。
+そこで、**「もっとシンプルに、`!bomb` だけを使えるMODがあればいいのでは？」** と思ったことが、ToyanBombを制作するきっかけになりました。
 
-そこで、
-
-**「もっとシンプルに、`!bomb` だけを使えるMODがあればいいのでは？」**
-
-と思ったことが、ToyanBombを制作するきっかけになりました。
-
-もともとは自分と友人用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開することにしました。
+もともとは自分と友人用として作り始めたものですが、同じように `!bomb` で遊びたい方が気軽に使えるよう、公開しています。
 
 長く楽しませていただいたStreamPartyCommandと、開発者のdenpadokeiさんに感謝します。
 
@@ -138,13 +159,7 @@ Beat Saberおよび関連する商標は、それぞれの権利者に帰属し�
 
 ToyanBombは **MIT License** で公開しています。
 
-以下を含め、自由に利用できます。
-
-- 使用
-- 改造
-- 再配布
-- Fork
-- 他のプロジェクトへの利用
+使用・改造・再配布・Fork・他プロジェクトへの利用が可能です。
 
 ソースコードまたはその重要な部分を再配布する場合は、元の著作権表示とMIT Licenseを残してください。
 
@@ -156,7 +171,7 @@ ToyanBombは **MIT License** で公開しています。
 
 ## ❤️ Credits
 
-Created by **toyan00** with development assistance from **ChatGPT**.
+Created by **toyan00&luca** with development assistance from **ChatGPT**.
 
 Beat SaberのMODコミュニティ、およびToyanBombで使用しているライブラリ・ツールの開発者の皆様に感謝します。
 
@@ -172,58 +187,55 @@ When a viewer sends `!bomb` in Twitch chat, ToyanBomb visually turns an eligible
 
 The viewer's name, emote / stamp, and visual effects are also displayed in the player view.
 
-ToyanBomb was created as a simple and fun way for viewers to interact with Beat Saber gameplay.
-
 ---
 
 ## ✨ Features
 
 - Twitch chat `!bomb` integration
-- Visually converts eligible notes into bombs while retaining the original note gameplay
-- Displays the viewer's name when a bomb is triggered
+- **BSR Bomb** integration with BeatSaberPlus `!bsr`
+- BSR bombs display the requester name and `!bsr` key on two lines
+- Original note gameplay and judgement are retained
 - Player-view message animation
 - Emote / stamp display support
-- Adjustable bomb size
-- Adjustable cut effects
-- Adjustable text and stamp size
-- Adjustable display distance and height
-- Adjustable fly, float and fade speeds
+- Automatic wrapping for long text
+- Adjustable bomb size, cut effect and text size
+- Adjustable display distance, height, fly speed, float speed and fade speed
 - In-game settings menu
 
 ---
 
-## 🎮 Supported Version
+## 🎮 Supported Versions
 
-Current version:
+ToyanBomb v1.1.6 builds:
 
-- **Beat Saber 1.44.1**
+- **Beat Saber 1.40.8**
+- **Beat Saber 1.42.0 - 1.44.1**
 
-Builds for other Beat Saber versions may be provided separately through GitHub Releases.
+Download the ZIP that matches your Beat Saber version from GitHub Releases.
+
+Source branches:
+
+- `main` : Beat Saber 1.42.0 - 1.44.1
+- `bs1.40.8` : Beat Saber 1.40.8
 
 ---
 
 ## 📦 Requirements
-
-ToyanBomb requires a modded Beat Saber installation and the following components:
 
 - BSIPA 4.3.6 or later
 - ChatPlexSDK_BS 6.4.0 or later
 - BeatSaberMarkupLanguage (BSML)
 - BeatSaberPlus / ChatPlex environment
 
-Make sure the required dependencies are installed before using ToyanBomb.
-
 ---
 
 ## 🚀 Installation
 
 1. Download the ToyanBomb release for your Beat Saber version from GitHub Releases.
-2. Extract the downloaded archive.
+2. Extract the archive.
 3. Copy `ToyanBomb.dll` into your Beat Saber `Plugins` folder.
 4. Start Beat Saber.
 5. Configure ToyanBomb from the in-game mod settings.
-
-Example:
 
 ```text
 Beat Saber/
@@ -235,61 +247,65 @@ Beat Saber/
 
 ## 💬 Usage
 
+### !bomb
+
 During Beat Saber gameplay, viewers can send:
 
 ```text
 !bomb
 ```
 
-in Twitch chat.
+ToyanBomb will visually turn an eligible note into a bomb while retaining the original note gameplay.
 
-ToyanBomb will process the command and visually turn an eligible note into a bomb while retaining the original note gameplay.
+### BSR Bomb
 
-The viewer's name and available emote / stamp effects will also be displayed in the player view.
+When `BSR Bomb` is enabled, ToyanBomb also reacts to BeatSaberPlus `!bsr` commands.
+
+Example:
+
+```text
+!bsr 4567
+```
+
+BeatSaberPlus continues to handle the song request. ToyanBomb independently queues one companion bomb.
+
+When that bomb is cut, it displays the requester name and request key on two lines:
+
+```text
+toyan3
+!bsr 4567
+```
+
+Use the in-game `BSR Bomb` toggle to enable or disable this behavior.
 
 ---
 
 ## ⚙️ Default Settings
 
-ToyanBomb v1.0.0 uses the following default settings:
+ToyanBomb v1.1.6 uses the following default settings:
 
-| Setting | Default | Description |
-| --- | ---: | --- |
-| Bomb Size | 1.55 | Adjusts the size of the bomb displayed in-game. |
-| Cut Effect | 100% | Adjusts the amount of particle effects generated when the bomb is hit. |
-| Text / Stamp Size | 100% | Adjusts the size of custom `!bomb` text and emote / stamp effects. |
-| Bomb Name Size | 100% | Adjusts the size of the sender's name displayed for a normal `!bomb`. |
-| Display Time | 4.5 sec | Adjusts the total time the text / stamp effect remains visible before disappearing. |
-| Display Distance | 6.0 m | Adjusts how far in front of the player the text / stamp effect will appear. |
-| Display Height | 0.0 m | Adjusts the vertical position of the text / stamp effect. 0.0 m is the base position. |
-| Fly Speed | 4 | Adjusts how quickly the text / stamp effect flies from the bomb position to its display position. |
-| Float Speed | 0.20 m/s | Adjusts how quickly the text / stamp effect floats upward after reaching its display position. |
-| Fade Speed | 4 | Adjusts how quickly the text / stamp effect fades out at the end of its display time. |
-
-These settings can be adjusted from the ToyanBomb in-game settings menu.
+| Setting | Default |
+| --- | ---: |
+| Bomb Size | 1.55 |
+| Cut Effect | 100% |
+| Text / Stamp Size | 100% |
+| Bomb Name Size | 100% |
+| Display Time | 4.5 sec |
+| Display Distance | 6.0 m |
+| Display Height | 0.0 m |
+| Fly Speed | 4 |
+| Float Speed | 0.20 m/s |
+| Fade Speed | 4 |
 
 ---
 
 ## ❤️ Background & Acknowledgements
 
-Before creating ToyanBomb, I had been using and enjoying the `!bomb` feature from [StreamPartyCommand](https://github.com/denpadokei/StreamPartyCommand) by **denpadokei** for a long time.
+Before creating ToyanBomb, I had been using and enjoying the `!bomb` feature from [StreamPartyCommand](https://github.com/denpadokei/StreamPartyCommand) by **denpadokei**.
 
-I really liked `!bomb` as a fun way for viewers to directly interact with Beat Saber gameplay.
+That experience inspired the idea of creating a simpler standalone `!bomb` mod that is easy to use and share.
 
-However, I also knew several people who had difficulty getting a bomb feature working in their particular environments.
-
-That made me think:
-
-**"What if there were a simple mod focused just on `!bomb`?"**
-
-That idea became the starting point for ToyanBomb.
-
-I originally created it for my own use, but decided to share it so that anyone who wants a simple `!bomb` experience can give it a try.
-
-Many thanks to **denpadokei** for StreamPartyCommand and for the experience that inspired this project.
-
-ToyanBomb is an independently developed implementation and does not contain source code or assets from StreamPartyCommand.
-
+ToyanBomb is independently developed and does not contain source code or assets from StreamPartyCommand.
 
 ---
 
@@ -305,13 +321,7 @@ Beat Saber and related trademarks are property of their respective owners.
 
 ToyanBomb is released under the **MIT License**.
 
-You are free to:
-
-- Use it
-- Modify it
-- Redistribute it
-- Fork it
-- Incorporate the source code into other projects
+You are free to use, modify, redistribute, fork, and incorporate the source code into other projects.
 
 Please retain the original copyright notice and MIT License when redistributing the source code or substantial portions of it.
 
@@ -321,6 +331,6 @@ See the `LICENSE` file for details.
 
 ## ❤️ Credits
 
-Created by **toyan00** with development assistance from **ChatGPT**.
+Created by **toyan00&luca** with development assistance from **ChatGPT**.
 
 Thanks to the Beat Saber modding community and the developers of the libraries and tools that make projects like this possible.
